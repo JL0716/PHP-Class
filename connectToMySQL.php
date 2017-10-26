@@ -33,7 +33,17 @@
     {
         echo "連線成功<br>~";
     }
+    //使用 sql 語法新增資料
+    $sql = "INSERT INTO students VALUES ('mike', 'm', 'XingZhu', 'ZHongShan Rd.')";
 
+    if( $dblink->query( $sql))
+    {
+        echo "成功新增資料";
+    }
+    else
+    {
+        echo "新增資料錯誤:".$sql."<br>".$dblink->error."<br>";
+    }
     //使用 sql 語法讀取資料
     $sql = "SELECT * FROM students";    //sql語法
     $result = $dblink->query($sql); //叫MySQL執行
@@ -53,6 +63,8 @@
     {
     echo "No data!";
     }
+    //應該每次都要關閉資料庫連線
+    $dblink->close();
 ?>
 
 </body>
