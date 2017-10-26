@@ -7,5 +7,8 @@
 <body>
 <H1>Hello World~from PHP</H1>
 <H1>哈囉~from PHP</H1>
+<?php
+	echo "This is after hypertext preprocessor!"
+?>
 </body>
 </html>
