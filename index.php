@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Hello | PHP</title>
 </head>
 <body>
-<H1>Hello World~</H1>
-<H1>哈囉~</H1>
+<H1>Hello World~from PHP</H1>
+<H1>哈囉~from PHP</H1>
 </body>
 </html>
