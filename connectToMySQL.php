@@ -14,6 +14,7 @@
     echo "測試資料庫連線...";
 
     //註解: 變數 用來設定連線
+    //在 vagrant ssh 要登入MySQL 可以打 mysql --user="homestead" --password="secret" 來登入
     $host = "localhost";    //請看主機上的 /etc/hosts
     $user = "homestead";    //homestead 內建的帳號
     $password = "secret";   //homestead 內建的密碼
@@ -24,7 +25,8 @@
     //檢查是否連線錯誤
     if ($dblink->connect_error)
     {
-        die("連線錯誤1:".$dblink->connect_error);     //物件導向
+        //die("連線錯誤1:".$dblink->connect_error);     //物件導向
+        die("連線錯誤2:".mysqli_connect_error());   //程序導向
     }
     else
     {
