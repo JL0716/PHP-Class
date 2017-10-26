@@ -18,9 +18,10 @@
     $host = "localhost";    //請看主機上的 /etc/hosts
     $user = "homestead";    //homestead 內建的帳號
     $password = "secret";   //homestead 內建的密碼
+    $database = "test"; //選擇資料庫
 
     //執行連線到資料庫的動作, 並將回傳的東西存放到 $dblink 中
-    $dblink = new mysqli($host, $user, $password);
+    $dblink = new mysqli($host, $user, $password, $database);
 
     //檢查是否連線錯誤
     if ($dblink->connect_error)
@@ -31,6 +32,26 @@
     else
     {
         echo "連線成功<br>~";
+    }
+
+    //使用 sql 語法讀取資料
+    $sql = "SELECT * FROM students";    //sql語法
+    $result = $dblink->query($sql); //叫MySQL執行
+
+    var_dump($result);  //列出除錯用的資訊
+
+    if( $result->num_rows > 0)  //檢查是否有查到資料
+    {
+        while( $row = $result->fetch_array() )  //將資料印出
+        {
+            echo "name:".$row["name"].
+                 ",  gender:".$row["gender"].
+                 ",  address:".$row["addressArea"].$row["addressDetail"]."<br>";
+        }
+    }
+    else
+    {
+    echo "No data!";
     }
 ?>
 
