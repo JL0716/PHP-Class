@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // 1. 定義 Animal 類別
 // 2. 屬性 position 可以被繼承
@@ -7,7 +7,7 @@
 // 5. 可以從外部得到食物
 class Animal
 {
-    private $animalType;
+    private $animalType = "default animal Type";//若沒有呼叫父類別的建構子,會印出這個
     protected $position;
 
     public function __construct($animalTypeFromOut)     //建構子   通常用來初始化動作
@@ -27,6 +27,6 @@ class Animal
     }
 }
 
-
+//$animal = new Animal("Test");
 
 ?>
